@@ -1,6 +1,6 @@
 """Учебный калькулятор: демонстрация для пары по Git."""
 
-VERSION = "1.0"
+VERSION = "1.1 (деление)"
 
 
 def add(a, b):
@@ -18,6 +18,13 @@ def mul(a, b):
     return a * b
 
 
+def div(a, b):
+    """Возвращает частное a и b."""
+    if b == 0:
+        raise ValueError("На ноль делить нельзя!")
+    return a / b
+
+
 def main():
     print(f"Калькулятор, версия {VERSION}")
     while True:
@@ -26,12 +33,13 @@ def main():
         print("  1) add — сложение")
         print("  2) sub — вычитание")
         print("  3) mul — умножение")
+        print("  4) div — деление")
         print("  0) выход")
         choice = input("> ").strip()
         if choice == "0":
             print("До встречи!")
             break
-        if choice not in ("1", "2", "3"):
+        if choice not in ("1", "2", "3", "4"):
             print("Неизвестная операция, попробуйте ещё раз.")
             continue
         a = float(input("Введите a: "))
@@ -40,8 +48,10 @@ def main():
             print("Результат:", add(a, b))
         elif choice == "2":
             print("Результат:", sub(a, b))
-        else:
+        elif choice == "3":
             print("Результат:", mul(a, b))
+        else:
+            print("Результат:", div(a, b))
 
 
 if __name__ == "__main__":
