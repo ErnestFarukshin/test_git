@@ -10,7 +10,7 @@ def add(a, b):
 
 def sub(a, b):
     """Возвращает разность a и b."""
-    return b - a  # TODO: кажется, здесь ошибка
+    return a - b  # исправлено: раньше возвращали b - a
 
 
 def main():
